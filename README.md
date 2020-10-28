@@ -65,13 +65,23 @@ Answer: 2 below (without the headings)
 
 ![](Q6.png)
 
-**Q7: Top clients from Paris and top 5 clients in general?**
+**Q7: Top clients from Paris and top 5 clients in general, from most ordered to least?**
 ```
-SELECT TOP 5 * FROM Customers WHERE City = 'Paris';
+-- Need to join Orders, Customers and [Order Details] tables fir CustomerID
+-- and OrderID, then search for the city Paris and then order
 
+SELECT Customers.CompanyName, [Order Details].Quantity
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID)
+WHERE Customers.City = 'Paris'
+ORDER BY Quantity DESC;
 
-SELECT TOP 5 * FROM Customers;
 ```
 
 Answers:
+
+![](Q7.png)
+
+
 
