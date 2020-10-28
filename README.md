@@ -1,4 +1,4 @@
-# SQL-Homework
+#SQL-Homework
 
 **Q1: How many orders in NWDB (Northwind Database)?**
 
@@ -49,7 +49,9 @@ Query:
 ```
 SELECT CompanyName, ContactName, City FROM Customers WHERE FAX IS NULL;
 ```
-Answer: Too many to answer
+Answer:
+
+![](Q5.png)
 
 
 **Q6: Want the information of all clients that are based in Paris**
@@ -61,9 +63,7 @@ SELECT * FROM Customers WHERE City = 'Paris';
 
 Answer: 2 below (without the headings)
 
-PARIS	Paris spécialités	Marie Bertrand	Owner	265, boulevard Charonne	Paris	NULL	75012	France	(1) 42.34.22.66	(1) 42.34.22.77
-SPECD	Spécialités du monde	Dominique Perrier	Marketing Manager	25, rue Lauriston	Paris	NULL	75016	France	(1) 47.55.60.10	(1) 47.55.60.20
-
+![](Q6.png)
 
 **Q7: Top clients from Paris and top 5 clients in general?**
 ```
