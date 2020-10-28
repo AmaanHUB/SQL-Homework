@@ -84,4 +84,29 @@ Answers:
 ![](Q7.png)
 
 
+**Q7: Find out which deliveries took longer than 10 days from Paris clients and display in a column called 'Number of Overdue Orders'. Show Business/Client name, contact name, all of the contact details (including fax) also.**
+
+Query:
+```
+SELECT  Customers.CompanyName,
+        Customers.ContactName,
+        Customers.Phone,
+        Customers.Fax,
+        Customers.PostalCode,
+        SUM(CASE
+			WHEN DATEDIFF(DAY,Orders.RequiredDate, Orders.ShippedDate)>10 THEN 1
+			ELSE 0
+			END)
+        AS 'Number Of Overdue Orders'
+FROM  ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID)
+WHERE Customers.City = 'Paris'
+GROUP BY    Customers.CustomerID,
+            Customers.CompanyName,
+            Customers.ContactName,
+            Customers.Phone,
+            Customers.Fax,
+            Customers.PostalCode;
+```
 
