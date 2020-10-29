@@ -93,9 +93,10 @@ SELECT  Customers.CompanyName,
         Customers.ContactName,
         Customers.Phone,
         Customers.Fax,
+        Customers.Address,
         Customers.PostalCode,
         SUM(CASE
-			WHEN DATEDIFF(DAY,Orders.RequiredDate, Orders.ShippedDate)>10 THEN 1
+			WHEN DATEDIFF(dd,Orders.RequiredDate, Orders.ShippedDate) > 10 THEN 1
 			ELSE 0
 			END)
         AS 'Number Of Overdue Orders'
@@ -108,6 +109,8 @@ GROUP BY    Customers.CustomerID,
             Customers.ContactName,
             Customers.Phone,
             Customers.Fax,
+            Customers.Address,
             Customers.PostalCode;
+
 ```
 
