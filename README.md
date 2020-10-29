@@ -67,7 +67,7 @@ Answer: 2 below (without the headings)
 
 **Q7: Top clients from Paris and top 5 clients in general, from most ordered to least?**
 ```
--- Need to join Orders, Customers and [Order Details] tables fir CustomerID
+-- Need to join Orders, Customers and [Order Details] tables for CustomerID
 -- and OrderID, then search for the city Paris and then order
 
 SELECT Customers.CompanyName, [Order Details].Quantity
@@ -77,6 +77,7 @@ INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID)
 WHERE Customers.City = 'Paris'
 ORDER BY Quantity DESC;
 
+-- Would add TOP 5 in first line if wanted only 5 showing, however there was only 6 (I think) so I showed them all
 ```
 
 Answers:
