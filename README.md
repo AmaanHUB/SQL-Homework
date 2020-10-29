@@ -84,7 +84,7 @@ Answers:
 ![](Q7.png)
 
 
-**Q7: Find out which deliveries took longer than 10 days from Paris clients and display in a column called 'Number of Overdue Orders'. Show Business/Client name, contact name, all of the contact details (including fax) also.**
+**Q8: Find out which deliveries took longer than 10 days from Paris clients and display in a column called 'Number of Overdue Orders'. Show Business/Client name, contact name, all of the contact details (including fax) also.**
 
 Query:
 ```
