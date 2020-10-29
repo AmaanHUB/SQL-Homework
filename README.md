@@ -112,5 +112,25 @@ GROUP BY    Customers.CustomerID,
             Customers.Address,
             Customers.PostalCode;
 
-```
 
+-- Also a possibility is below:
+
+SELECT TOP 5
+    Customers.CustomerID,
+    Customers.CompanyName,
+    Customers.ContactName,
+    Customers.Phone,
+    Customers.Fax,
+    COUNT(Orders.OrderID) AS 'Overdue Orders'
+FROM Customers
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+WHERE Orders.ShippedDate - Orders.RequiredDate > 10 AND City = 'Paris'
+GROUP BY
+    Customers.CustomerID,
+    Customers.CompanyName,
+    Customers.ContactName,
+    Customers.Phone,
+    Customers.Fax
+ORDER BY COUNT(Orders.OrderID) DESC;
+
+```
